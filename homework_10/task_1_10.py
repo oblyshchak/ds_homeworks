@@ -13,14 +13,15 @@ def month(number_of_month):
         11 : 'Novemver',
         12 : 'December'
     }
+    if not isinstance(number_of_month, int):
+        raise TypeError("You need to input type 'number', not another type")
     try:
         result = season[number_of_month]
     except KeyError as ke:
-        print(f"{ke} - number is not in range(1, 12)") 
-    except TypeError as te:
-        print(f"{te} You need to input type 'number', not another type")
+        print(f"{ke} - is not a month, pass number from 1 to 12") 
     else:
-        return print(f"{number_of_month} month is {result}")
+        print(f"{number_of_month} month is {result}")
+        return result
 
-month(9)
+month(89)
         
