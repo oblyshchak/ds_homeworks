@@ -1,0 +1,10 @@
+server 2022-11-24 00:19:20,069 - INFO - listening
+client 2022-11-24 00:19:35,442 INFO - client trying to connect to server
+client 2022-11-24 00:19:35,452 INFO - client connected
+server 2022-11-24 00:19:35,452 - DEBUG - server accept ('127.0.0.1', 51822)
+client 2022-11-24 00:19:39,176 DEBUG - sending to server hello
+server 2022-11-24 00:19:47,451 - DEBUG - Sending message to client
+client 2022-11-24 00:19:47,451 DEBUG - <socket.socket fd=1104, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 51822), raddr=('127.0.0.1', 8000)> get from server b'hi, client'
+client 2022-11-24 00:19:51,710 DEBUG - sending to server by
+server 2022-11-24 00:20:17,072 - DEBUG - Sending message to client
+client 2022-11-24 00:20:17,072 DEBUG - <socket.socket fd=1104, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=0, laddr=('127.0.0.1', 51822), raddr=('127.0.0.1', 8000)> get from server b'by by'
