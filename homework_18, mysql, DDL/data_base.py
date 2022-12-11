@@ -26,17 +26,16 @@ class DataBase:
 
     def create_database(self, name_database):
         try:
-            self.my_cursor.execute(f"CREATE DATABASE {name_database};")
+            self.my_cursor.execute(f"CREATE DATABASE IF NOT EXISTS {name_database};")
             print(f"DATABASE {name_database} is created")
         except Exception as error:
-            raise SyntaxMySQLError(f"{error}, {name_database}")
+            raise SyntaxMySQLError(error, name_database)
 
 
     def create_table(self, name_database, name_table, commands):
         #commands --> list
         self.my_cursor.execute(f"USE {name_database};")
-        table = f"CREATE TABLE `{name_table}`({', '.join(commands)});"
-        print(table)
+        table = f"CREATE TABLE IF NOT EXISTS `{name_table}`({', '.join(commands)});"
 
         try:
             self.my_cursor.execute(table)
@@ -107,10 +106,10 @@ class DataBase:
 
 
 
-first = DataBase('localhost', 'root', '*****')
+first = DataBase('localhost', 'root', 'sasha5159')
 first.create_database('my_first_db')
-first.create_table('my_first_db', 'students', ['id INT', 'name VARCHAR(255)'])
+first.create_table('my_first_db', 'student', ['id INT', 'name VARCHAR(255)'])
 first.create_table('my_first_db', 'employee', ['id INT AUTO_INCREMENT PRIMARY KEY', 'name VARCHAR(255)', 'salary INT(6)'])
-first.update_primary_key('my_first_db', 'students', 'id')
-first.insert_values('my_first_db', 'students', values=['01', "'John'"])
+first.update_primary_key('my_first_db', 'student', 'id')
+first.insert_values('my_first_db', 'student', values=['01', "'John'"])
 first.insert_values('my_first_db', 'employee', columns_values={'name': "'John'", 'salary': '10000'})
