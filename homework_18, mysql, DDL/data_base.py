@@ -106,7 +106,7 @@ class DataBase:
 
 
 
-first = DataBase('localhost', 'root', 'sasha5159')
+first = DataBase('localhost', 'root', '****')
 first.create_database('my_first_db')
 first.create_table('my_first_db', 'student', ['id INT', 'name VARCHAR(255)'])
 first.create_table('my_first_db', 'employee', ['id INT AUTO_INCREMENT PRIMARY KEY', 'name VARCHAR(255)', 'salary INT(6)'])
