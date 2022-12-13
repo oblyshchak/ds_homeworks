@@ -4,15 +4,12 @@ class Matrix:
     def __init__(self, data):
         self.matrix = data
 
-
     def print_matrix(self):
         print(self.matrix)
-
 
     def checking(self, matrix_a, matrix_b):
         matrix_a = copy.deepcopy(matrix_a)
         matrix_b = copy.deepcopy(matrix_b)
-
         if len(matrix_a) != len(matrix_b):
             if len(matrix_a) > len(matrix_b):
                 dif = len(matrix_a) - len(matrix_b)
@@ -32,7 +29,6 @@ class Matrix:
 
         return matrix_a, matrix_b
 
-
     def sum_matrix(self, data):
         matrix, data = self.checking(self.matrix, data.matrix)
         result_matrix = []
@@ -43,9 +39,7 @@ class Matrix:
             for i in range(len(row_in_first)):
                 adding.append(row_in_first[i] + row_in_second[i])
             result_matrix.append(adding)
-
         return Matrix(result_matrix)
-
 
     def subtraction(self, data):
         matrix, data = self.checking(self.matrix, data.matrix)
@@ -58,7 +52,6 @@ class Matrix:
                 adding.append(row_in_first[i] - row_in_second[i])
             result_matrix.append(adding)
 
-        # self.print_matrix()
         return Matrix(result_matrix)
 
     def transpose(self):
@@ -77,9 +70,7 @@ class Matrix:
         for i in range(len(result)):
             for k in range(len(result[i])):
                 result[i][k] = matrix[k][i]
-
         return Matrix(result)
-
 
     def multi_number(self, number):
         result_matrix = []
@@ -90,7 +81,6 @@ class Matrix:
             result_matrix.append(new_row)
 
         return Matrix(result_matrix)
-
 
     def multiplication(self, data):
         #Check quantity columns in matrix A and check is matrix or not
@@ -106,7 +96,6 @@ class Matrix:
             quantity_columns_B = len(data.matrix[i])
             if len(data.matrix[i]) != len(data.matrix[i+1]):
                 raise Exception (f"{data.matrix} is not support rules matrix")
-
         if quantity_columns_A == quantity_rows_in_B:
             #create empty matrix for result multiplication
             result_matrix = []
@@ -119,9 +108,7 @@ class Matrix:
                         new_val += self.matrix[i][j] * data.matrix[j][k]
                     add.append(new_val)
                 result_matrix.append(add)
-
             return Matrix(result_matrix)
-
         else:
             raise Exception ("matrix are not supported multiplication")
 
