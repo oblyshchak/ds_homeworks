@@ -2,6 +2,9 @@ import copy
 
 class Matrix:
     def __init__(self, data):
+        for i in range(len(data)-1):
+            if len(data[i]) != len(data[i+1]):
+                raise Exception (f'this matrix {data} is not support rules creating matrix')
         self.matrix = data
 
     def print_matrix(self):
@@ -115,7 +118,7 @@ class Matrix:
 
 a = Matrix([
     [1, 2],
-    [4, 6],
+    [4, 2],
     [8, 90]
     ])
 b = Matrix([
@@ -124,11 +127,4 @@ b = Matrix([
     [80, 10, 90]
     ])
 
-a.transpose()
-v = b.transpose()
-v.print_matrix()
-c = a.subtraction(b)
-c.print_matrix()
-a.sum_matrix(b)
-a.multiplication(b)
-b.multi_number(8)
+a.sum_matrix(b).print_matrix()
