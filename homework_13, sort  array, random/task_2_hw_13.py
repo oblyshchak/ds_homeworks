@@ -19,7 +19,6 @@ def average_time(function, array_list, n):
         start_time = time.time()
         function(array_list[:])
         finish_time = time.time()
-        print(finish_time - start_time)
         av_time += finish_time - start_time
 
     result = av_time/n
