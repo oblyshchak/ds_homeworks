@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 
 class MathStat():
@@ -86,6 +87,7 @@ class MathStat():
 obj = MathStat([10, 13, 10, 9, 9, 12, 12, 6, 7, 9, 8, 9, 11, 9, 14, 13, 9, 8, 8, 7, 10, 10, 11, 11, 11, 12, 8, 7, 9 ,10, 14, 13, 8, 8, 9, 10, 11, 11, 12, 12])
 
 
+
 class Draw:
     def __init__(self, obj: MathStat):
         self.obj = obj
@@ -114,10 +116,39 @@ class Draw:
         plt.title('Frequency polygons')
         plt.show()
 
+    def relative_polygon(self):
+        data = self.obj.get_relative_frequency()
+        x = [i for i in data.keys()]
+        n = [i for i in data.values()]
+        plt.plot(x, n, color='green', linestyle='dashed', linewidth = 3,
+                 marker='o', markerfacecolor='blue', markersize=12)
+        plt.ylim(0)
+        plt.xlim(0)
+        plt.xlabel('Xi - axis')
+        plt.ylabel('Wi - axis')
+        plt.title('Frequency polygons')
+        plt.show()
+
+    def table(self):
+        data_1 = self.obj.get_frequency()
+        data_2 = self.obj.get_relative_frequency()
+        x = [i for i in data_1.keys()]
+        n = [i for i in data_1.values()]
+        w = [i for i in data_2.values()]
+        data = {'X = x_i' : x,
+                'Ni' : n,
+                'Wi' : w}
+        result = pd.DataFrame.from_dict(data, orient='index', columns=range(1, 10))
+        return result
+
+
 
 
 draw_ob = Draw(obj)
+draw_ob.polygon_of_frequencies()
+draw_ob.relative_polygon()
 draw_ob.empirical_dist_func()
+print(draw_ob.table())
 
 
 
