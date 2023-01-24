@@ -98,7 +98,8 @@ def check_data(login, password):
                 return True
             return False
         
-print(greeting())
+if __name__ == '__main__':
+    greeting()
     
     
         

@@ -63,7 +63,8 @@ class HashTable():
         else:
             return self.delete(key, add+1)
         
-    # TO DO: def visual_hash(self):
+    def visual_hash(self):
+        return self.array
         
 
 first = HashTable(9)
@@ -72,7 +73,7 @@ first.insert('Molita', 4)
 first.insert('molita', 3)
 print(first.search('molita'))
 first.delete('molita')
-print(first.array)
+print(first.visual_hash())
 
         
     
